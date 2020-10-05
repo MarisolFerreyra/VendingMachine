@@ -74,7 +74,7 @@ for element in myVendingMachine {
 }
 
 // New code!
-
+//rebecca was here
 
 print(getMinIndex(vMachine: myVendingMachine))
 //getMaxIndex(vMachine: competitorsVendingMachine)

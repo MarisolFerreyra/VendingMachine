@@ -73,7 +73,7 @@ for element in myVendingMachine {
     print(element.calcSales())
 }
 
-
+// New code!
 
 
 print(getMinIndex(vMachine: myVendingMachine))

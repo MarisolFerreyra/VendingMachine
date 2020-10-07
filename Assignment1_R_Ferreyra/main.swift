@@ -43,7 +43,7 @@ var competitorsVendingMachine = [drinkTwo, drinkFour]
 func getMaxIndex(vMachine:[Drink]) -> Int {
     var answer = 0
     var index = 0
-    var greatest = 0.0
+    var greatest = vMachine[0].calcSales()
     
     while index < vMachine.count {
         if greatest < vMachine[index].calcSales() {
@@ -58,10 +58,10 @@ func getMaxIndex(vMachine:[Drink]) -> Int {
 func getMinIndex(vMachine:[Drink]) -> Int {
     var answer = 0
     var index = 0
-    var least =  
+    var least = vMachine[0].calcSales()
     
     while index < vMachine.count {
-        if least   vMachine[index].calcSales() {
+        if least > vMachine[index].calcSales() {
             least = vMachine[index].calcSales()
             answer = index
         }
@@ -69,12 +69,28 @@ func getMinIndex(vMachine:[Drink]) -> Int {
     }
     return answer
 }
-for element in myVendingMachine {
-    print(element.calcSales())
+
+func calcTotalSales(_ vMachine:[Drink]) -> Double {
+    var index = 0
+    
+    
+    while index < vMachine.count {
+        print(vMachine[index].drinkName)
+        index += 1
+    }
+    
 }
 
-// New code!
-//rebecca was here
 
-print(getMinIndex(vMachine: myVendingMachine))
+
+
+//print(competitorsVendingMachine[0].drinkName)
+//print(drinkTwo.drinkName)
+
+
+
+//print(getMinIndex(vMachine:competitorsVendingMachine))
 //getMaxIndex(vMachine: competitorsVendingMachine)
+/*calcTotalSales(myVendingMachine)
+
+*/

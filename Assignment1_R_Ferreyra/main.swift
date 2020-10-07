@@ -72,25 +72,12 @@ func getMinIndex(vMachine:[Drink]) -> Int {
 
 func calcTotalSales(_ vMachine:[Drink]) -> Double {
     var index = 0
-    
+    var sum = 0.0
     
     while index < vMachine.count {
-        print(vMachine[index].drinkName)
+        sum += vMachine[index].calcSales()
         index += 1
     }
-    
+    return sum
 }
 
-
-
-
-//print(competitorsVendingMachine[0].drinkName)
-//print(drinkTwo.drinkName)
-
-
-
-//print(getMinIndex(vMachine:competitorsVendingMachine))
-//getMaxIndex(vMachine: competitorsVendingMachine)
-/*calcTotalSales(myVendingMachine)
-
-*/

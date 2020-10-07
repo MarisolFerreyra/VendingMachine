@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// Struc Name
 struct Drink {
     // Properties
     var drinkName: String
@@ -29,18 +29,15 @@ struct Drink {
 }
 
 // Define Drinks
-var drinkOne = Drink(drinkName:"Cola",drinkCost: 1.50, initialQty: 33, currentQty: 15)
-var drinkTwo = Drink(drinkName:"Sprite", drinkCost: 1.15, initialQty: 40, currentQty: 5)
-var drinkThree = Drink(drinkName:"Root Beer",drinkCost: 1.00, initialQty: 30, currentQty: 21)
-var drinkFour = Drink(drinkName:"Squirt",drinkCost: 2.00, initialQty: 20, currentQty: 22)
-
+var drinkOne = Drink(drinkName:"Cream Soda",drinkCost: 1.25, initialQty: 20, currentQty: 10)
+var drinkTwo = Drink(drinkName:"Lemonade", drinkCost: 1.25, initialQty: 15, currentQty: 10)
+var drinkThree = Drink(drinkName:"Root Beer",drinkCost: 1.75, initialQty: 15, currentQty: 5)
 
 // Define Vending Machine
-var myVendingMachine = [drinkOne, drinkThree, drinkTwo]
-var competitorsVendingMachine = [drinkTwo, drinkFour]
+var myVendingMachine = [drinkOne, drinkTwo, drinkThree]
 
 // Functions
-func getMaxIndex(vMachine:[Drink]) -> Int {
+func getMaxIndex(_ vMachine:[Drink]) -> Int {
     var answer = 0
     var index = 0
     var greatest = vMachine[0].calcSales()
@@ -55,7 +52,7 @@ func getMaxIndex(vMachine:[Drink]) -> Int {
     return answer
 }
 
-func getMinIndex(vMachine:[Drink]) -> Int {
+func getMinIndex(_ vMachine:[Drink]) -> Int {
     var answer = 0
     var index = 0
     var least = vMachine[0].calcSales()
@@ -81,3 +78,30 @@ func calcTotalSales(_ vMachine:[Drink]) -> Double {
     return sum
 }
 
+func displayResult(_ vMachine:[Drink]) {
+    var index = 0
+    // Establish Column Widths
+    let columnPadLength = 12
+    // Define Header String
+    let headerString = "Drink Name".padding(toLength: columnPadLength, withPad: " ", startingAt: 0) +
+                       "Cost".padding(toLength: 8, withPad: " ", startingAt: 0) +
+                       "Qty Sold".padding(toLength: columnPadLength, withPad: " ", startingAt: 0) +
+                       "Sales".padding(toLength: columnPadLength, withPad: " ", startingAt: 0)
+    print(headerString)
+    while index < vMachine.count {
+        print(vMachine[index].drinkName +
+                "\t" + String(vMachine[index].drinkCost) +
+                "\t" + String(vMachine[index].qtySold) +
+                "\t\t\t" + String(vMachine[index].calcSales()))
+        index += 1
+    }
+    print("\n")
+    let x = getMaxIndex(vMachine)
+    print(vMachine[x].drinkName + " has the most sales: " + String(vMachine[x].calcSales()))
+    let y = getMinIndex(vMachine)
+    print(vMachine[y].drinkName + " has the least sales: " + String(vMachine[y].calcSales()))
+    print("Total Sales: \(calcTotalSales(vMachine))")
+    print("\n")
+}
+
+displayResult(myVendingMachine)
